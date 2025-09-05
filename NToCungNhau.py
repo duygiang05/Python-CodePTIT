@@ -1,11 +1,11 @@
 import math
 
-n = int(input())
+n,k = map(int,input().split())
 
-a = list(map(int,input().split()))
-a.sort()
+st , en = 10 ** (k - 1),10 ** k - 1; cnt = 0
 
-for i in range(n) :
-    for j in range(i + 1,n) :
-        if math.gcd(a[i], a[j]) == 1 : print(a[i], a[j], sep=' ',end='\n')
-        
+for i in range(st,en + 1) :
+    if cnt == 10 : print(); cnt = 0
+    if math.gcd(n,i) == 1 : 
+        print(i,end=' ')
+        cnt += 1
